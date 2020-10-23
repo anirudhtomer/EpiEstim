@@ -484,6 +484,7 @@ estimate_R_func <- function(incid,
     si_uncertainty <- "Y"
     parametric_si <- "N"
   }
+  r_sample = NULL                         
   if (si_uncertainty == "Y") {
     if (parametric_si == "Y") {
       mean_si_sample <- rep(-1, config$n1)
@@ -692,6 +693,7 @@ estimate_R_func <- function(incid,
   results$I <- rowSums(incid[, c("local", "imported")])
   results$I_local <- incid$local
   results$I_imported <- incid$imported
+  results$r_sample = r_sample
 
   class(results) <- "estimate_R"
   return(results)
